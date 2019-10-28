@@ -1,9 +1,10 @@
 version: 2
 jobs:
-  docker:
-    - image: circleci/node:10.16.3
-  steps:
-    - checkout
-    - run:
-        name: Run test command
-        command: echo 'Run something please!!!!'
+  build:
+    docker:
+      - image: circleci/node:10.16.3
+    steps:
+      - checkout
+      - run:
+          name: Run test command
+          command: echo 'Run something please!!!!'
