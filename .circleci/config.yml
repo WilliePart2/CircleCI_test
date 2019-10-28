@@ -1,6 +1,6 @@
 version: 2
 jobs:
-  build:
+  start:
     docker:
       - image: circleci/node:10.16.3
     steps:
@@ -8,3 +8,19 @@ jobs:
       - run:
           name: Run test command
           command: echo 'Run something please!!!!'
+  end:
+    docker:
+      - image: circleci/node:10.16.3
+    steps:
+      - checkout
+      - run:
+          name: Something different...
+          commane: echo 'Something different -___-'
+workflows:
+  version: 2
+  complete_deploy:
+    jobs:
+      - start
+      - end:
+        requires:
+          - start
