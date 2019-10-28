@@ -15,7 +15,7 @@ jobs:
       - checkout
       - run:
           name: Something different...
-          commane: echo 'Something different -___-'
+          command: echo 'Something different -___-'
 workflows:
   version: 2
   complete_deploy:
