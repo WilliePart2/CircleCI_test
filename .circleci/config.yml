@@ -5,5 +5,5 @@ jobs:
   steps:
     - checkout
     - run:
-      name: Run test command
-      command: echo 'Run something please!!!!'
+        name: Run test command
+        command: echo 'Run something please!!!!'
