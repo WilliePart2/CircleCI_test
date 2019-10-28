@@ -1,10 +1,9 @@
-version: 2.1
+version: 2
 jobs:
-  build:
-    docker:
-      - image: circleci/node:10.16.3
-    steps:
-      - checkout
-      - run:
-          name: update-npm
-          command: 'echo "some"'
+  docker:
+  - image: circleci/node:10.16.3
+  steps:
+  - checkout
+  - run:
+    name: Run test command
+    command: echo 'Run something please!!!!'
