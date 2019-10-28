@@ -5,3 +5,6 @@ version: 2
        - image: circleci/node:10.16.3
      steps:
        - checkout
+       - run:
+        name: Run something
+        command: 'echo "hello world"'
