@@ -8,6 +8,9 @@ jobs:
       - run:
           name: Run test command
           command: echo 'Run something please!!!!'
+      - run:
+          name: 'Current branch name'
+          command: echo "Branch: $CIRCLE_BRANCH"
   end:
     docker:
       - image: circleci/node:10.16.3
