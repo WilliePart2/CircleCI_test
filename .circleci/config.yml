@@ -9,7 +9,8 @@ jobs:
       - checkout
       - run:
           name: Set global evn vars
-          command: "export SOME_VAR=some_value_of_some_var" >> $BASH_ENV
+          command: |
+            echo "export SOME_VAR=some_value_of_some_var" >> $BASH_ENV
       - run:
           name: Run test command
           command: echo 'Run something please!!!!'
@@ -27,6 +28,9 @@ jobs:
       - run:
           name: Job level env
           command: echo $JOB_LEVEL_ENV
+      - run:
+          name: Project lelvel evn var
+          command: echo $USERNAME
   end:
     docker:
       - image: circleci/node:10.16.3
