@@ -3,14 +3,30 @@ jobs:
   start:
     docker:
       - image: circleci/node:10.16.3
+    environment:
+      JOB_LEVEL_ENV: Job level env
     steps:
       - checkout
+      - run:
+          name: Set global evn vars
+          command: "export SOME_VAR=some_value_of_some_var" >> $BASH_ENV
       - run:
           name: Run test command
           command: echo 'Run something please!!!!'
       - run:
           name: 'Current branch name'
           command: echo "Branch - $CIRCLE_BRANCH"
+      - run:
+          name: Value of shared vars
+          command: echo $SOME_VAR
+      - run:
+          name: Run level env vars
+          command: echo RUN_LEVEL_ENV
+          environment:
+            RUN_LEVEL_ENV: some data
+      - run:
+          name: Job level env
+          command: echo $JOB_LEVEL_ENV
   end:
     docker:
       - image: circleci/node:10.16.3
